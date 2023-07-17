@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="seatfinder.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Enter complete home and work addresses below for the most accurate list
+      results. Visit
+      <a href="http://www.rideshareonline.com" target="_blank" rel="external"
+        ><span>RideshareOnline.com</span></a
+      >
+      to create and view custom trip lists with additional search filters,
+      personal trip calendar, and available rewards.
+    </p>
+
+    <form id="form1" runat="server" submitdisabledcontrols="True">
+      <div id="iCarpoolVanpoolSeatFinderDiv" style="position: relative">
+        <div class="form-group row">
+          <label for="start" class="col-sm-1 col-form-label">Start</label>
+          <div class="col-sm-11">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Enter full address including zip code"
+              id="start"
+              onblur="javascript:CheckText(this);"
+              onfocus="javascript:ClearText(this);"
+              onchange="javascript:CallStartAddressChanged();"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="destination" class="col-sm-1 col-form-label">End</label>
+          <div class="col-sm-11">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Enter full address including zip code"
+              id="destination"
+              onblur="javascript:CheckText(this);"
+              onfocus="javascript:ClearText(this);"
+              onchange="javascript:CallEndAddressChanged();"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-11">
+            <input
+              type="button"
+              value="Search"
+              class="btn btn-success"
+              id="searchButton"
+              onclick="javascript:CallVanpoolSeatFinder(); _gaq.push(['_trackEvent', 'Seat Finder', 'Search', 'Vanpool Seat Finder']);"
+              onsubmit="pageTracker._trackEvent('Seat Finder','Search','Info for Travelers');"
+            />
+            <input
+              type="hidden"
+              value="false"
+              id="showVanpoolsFromHostNetworkOnly"
+            />
+            <div class="spacer20"></div>
+            <div id="iCarpoolCopyright"></div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
